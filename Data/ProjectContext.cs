@@ -1,12 +1,12 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 namespace Final_Project.Models;
 
-public class ProjectContext : DbContext
+public class ProjectContext : IdentityDbContext
 {
-   public ProjectContext(DbContextOptions<ProjectContext> options) //empty constructor
-       : base(options)
-   {
-   }
-   public DbSet<Member> Member { get; set; } = default!;
-   public DbSet<Pet> Pets { get; set; } = default!;
+    public ProjectContext(DbContextOptions<ProjectContext> options) //empty constructor
+        : base(options)
+    {
+    }
+    public DbSet<Pet> Pets { get; set; } = default!;
 }

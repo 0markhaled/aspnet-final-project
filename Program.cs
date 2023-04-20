@@ -1,5 +1,6 @@
 using Final_Project.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ProjectContext>(opt =>{//add the dbcontext
     opt.UseMySql(connectionString, dbmsVersion);//use mysql
 });
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ProjectContext>();
 
 
 var app = builder.Build();

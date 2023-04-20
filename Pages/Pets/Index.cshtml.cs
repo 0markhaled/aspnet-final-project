@@ -7,25 +7,61 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Final_Project.Models;
 
-namespace Final_Project.Pages_Pets
+namespace Final_Project.Pages.Pets
 {
     public class IndexModel : PageModel
     {
-        private readonly Final_Project.Models.ProjectContext _context;
+        private readonly ProjectContext _context;
 
-        public IndexModel(Final_Project.Models.ProjectContext context)
+        public IndexModel(ProjectContext context)
         {
             _context = context;
         }
 
-        public IList<Pet> Pet { get;set; } = default!;
+        public IList<Pet> Pet { get; set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public string Query { get; set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public DateTime? PetBirthday { get; set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public bool? BeforePetBirthday { get; set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public bool DateSearchEnable { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Pets != null)
+            IQueryable<Pet> pets;
+            if (Query != null)
             {
-                Pet = await _context.Pets.ToListAsync();
+                pets = _context.Pets.Where(p => p.PetType.Contains(Query));
             }
+            else
+            {
+                pets = _context.Pets;
+            }
+
+            if (PetBirthday != null && DateSearchEnable)
+            {
+
+                if (BeforePetBirthday != null)
+                {
+                    if (BeforePetBirthday.Value)
+                    {
+                        pets = pets.Where(g => g.Birthday <= PetBirthday);
+                    }
+                    else
+                    {
+                        pets = pets.Where(g => g.Birthday > PetBirthday);
+                    }
+                }
+
+            }
+            Pet = await pets.ToListAsync();
+            Page();
         }
     }
 }
