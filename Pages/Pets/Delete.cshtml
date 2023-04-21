@@ -1,5 +1,5 @@
 @page
-@model Final_Project.Pages_Pets.DeleteModel
+@model FinalProject.Pages_Pets.DeleteModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -43,7 +43,7 @@
             @Html.DisplayFor(model => model.Pet.FileName)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Pet.PetId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

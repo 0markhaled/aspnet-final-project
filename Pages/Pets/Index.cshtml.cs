@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Final_Project.Models;
+using FinalProject.Models;
 
-namespace Final_Project.Pages.Pets
+namespace FinalProject.Pages.Pets
 {
     public class IndexModel : PageModel
     {

@@ -1,4 +1,4 @@
-using Final_Project.Models;
+using FinalProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
@@ -8,7 +8,8 @@ var dbmsVersion = new MariaDbServerVersion(builder.Configuration.GetValue<string
 var connectionString = builder.Configuration.GetConnectionString("FinalProjectDb");//load the connection string
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ProjectContext>(opt =>{//add the dbcontext
+builder.Services.AddDbContext<ProjectContext>(opt =>
+{//add the dbcontext
     opt.UseMySql(connectionString, dbmsVersion);//use mysql
 });
 

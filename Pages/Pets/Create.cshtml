@@ -1,5 +1,5 @@
 @page
-@model Final_Project.Pages_Pets.CreateModel
+@model FinalProject.Pages_Pets.CreateModel
 
 @{
     ViewData["Title"] = "Create";
@@ -50,5 +50,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

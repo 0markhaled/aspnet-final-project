@@ -1,5 +1,5 @@
 @page
-@model Final_Project.Pages_Pets.EditModel
+@model FinalProject.Pages_Pets.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -51,5 +51,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
