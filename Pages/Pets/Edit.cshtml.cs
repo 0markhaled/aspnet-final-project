@@ -29,7 +29,7 @@ namespace Final_Project.Pages_Pets
                 return NotFound();
             }
 
-            var pet =  await _context.Pets.FirstOrDefaultAsync(m => m.PetId == id);
+            var pet = await _context.Pets.FirstOrDefaultAsync(m => m.PetId == id);
             if (pet == null)
             {
                 return NotFound();
@@ -42,35 +42,42 @@ namespace Final_Project.Pages_Pets
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (User.Identity != null && User.Identity.IsAuthenticated)
             {
-                return Page();
-            }
-
-            _context.Attach(Pet).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PetExists(Pet.PetId))
+                if (!ModelState.IsValid)
                 {
-                    return NotFound();
+                    return Page();
                 }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return RedirectToPage("./Index");
+                _context.Attach(Pet).State = EntityState.Modified;
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PetExists(Pet.PetId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return RedirectToPage("./Index");
+            }
+            else
+            {
+                return RedirectToPage("./Index");
+            }
         }
 
         private bool PetExists(uint id)
         {
-          return (_context.Pets?.Any(e => e.PetId == id)).GetValueOrDefault();
+            return (_context.Pets?.Any(e => e.PetId == id)).GetValueOrDefault();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Final_Project.Pages_Pets
         }
 
         [BindProperty]
-      public Pet Pet { get; set; } = default!;
+        public Pet Pet { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(uint? id)
         {
@@ -34,7 +34,7 @@ namespace Final_Project.Pages_Pets
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Pet = pet;
             }
@@ -43,20 +43,27 @@ namespace Final_Project.Pages_Pets
 
         public async Task<IActionResult> OnPostAsync(uint? id)
         {
-            if (id == null || _context.Pets == null)
+            if (User.Identity != null && User.Identity.IsAuthenticated)
             {
-                return NotFound();
-            }
-            var pet = await _context.Pets.FindAsync(id);
+                if (id == null || _context.Pets == null)
+                {
+                    return NotFound();
+                }
+                var pet = await _context.Pets.FindAsync(id);
 
-            if (pet != null)
+                if (pet != null)
+                {
+                    Pet = pet;
+                    _context.Pets.Remove(Pet);
+                    await _context.SaveChangesAsync();
+                }
+
+                return RedirectToPage("./Index");
+            }
+            else
             {
-                Pet = pet;
-                _context.Pets.Remove(Pet);
-                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
-
-            return RedirectToPage("./Index");
         }
     }
 }
