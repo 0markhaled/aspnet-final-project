@@ -7,110 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FinalProject.Migrations
 {
     /// <inheritdoc />
-    public partial class IndentifyAdded : Migration
+    public partial class database : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Member");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Pet",
-                table: "Pet");
-
-            migrationBuilder.RenameTable(
-                name: "Pet",
-                newName: "Pets");
-
-            migrationBuilder.RenameColumn(
-                name: "Petid",
-                table: "Pets",
-                newName: "PetId");
-
-            migrationBuilder.UpdateData(
-                table: "Pets",
-                keyColumn: "PetType",
-                keyValue: null,
-                column: "PetType",
-                value: "");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "PetType",
-                table: "Pets",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.UpdateData(
-                table: "Pets",
-                keyColumn: "Gender",
-                keyValue: null,
-                column: "Gender",
-                value: "");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Gender",
-                table: "Pets",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.UpdateData(
-                table: "Pets",
-                keyColumn: "FileName",
-                keyValue: null,
-                column: "FileName",
-                value: "");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "FileName",
-                table: "Pets",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.UpdateData(
-                table: "Pets",
-                keyColumn: "Description",
-                keyValue: null,
-                column: "Description",
-                value: "");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Description",
-                table: "Pets",
-                type: "longtext",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "longtext",
-                oldNullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.AddColumn<DateTime>(
-                name: "Birthday",
-                table: "Pets",
-                type: "datetime(6)",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Pets",
-                table: "Pets",
-                column: "PetId");
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
@@ -163,6 +66,31 @@ namespace FinalProject.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Pets",
+                columns: table => new
+                {
+                    PetId = table.Column<uint>(type: "int unsigned", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Age = table.Column<uint>(type: "int unsigned", nullable: false),
+                    PetType = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Gender = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Birthday = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    FileName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pets", x => x.PetId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -350,95 +278,13 @@ namespace FinalProject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Pets");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Pets",
-                table: "Pets");
-
-            migrationBuilder.DropColumn(
-                name: "Birthday",
-                table: "Pets");
-
-            migrationBuilder.RenameTable(
-                name: "Pets",
-                newName: "Pet");
-
-            migrationBuilder.RenameColumn(
-                name: "PetId",
-                table: "Pet",
-                newName: "Petid");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "PetType",
-                table: "Pet",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Gender",
-                table: "Pet",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "FileName",
-                table: "Pet",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Description",
-                table: "Pet",
-                type: "longtext",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "longtext")
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Pet",
-                table: "Pet",
-                column: "Petid");
-
-            migrationBuilder.CreateTable(
-                name: "Member",
-                columns: table => new
-                {
-                    Memberid = table.Column<uint>(type: "int unsigned", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Email = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    FirstName = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    LastName = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    MailingAddress = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Password = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Member", x => x.Memberid);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
         }
     }
 }
