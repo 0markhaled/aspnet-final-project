@@ -23,14 +23,23 @@ namespace FinalProject.Pages.Pets
         [BindProperty(SupportsGet = true)]
         public string Query { get; set; } = default!;
 
-        [BindProperty(SupportsGet = true)]
-        public DateTime? PetBirthday { get; set; } = default!;
+        // [BindProperty(SupportsGet = true)]
+        // public DateTime? PetBirthday { get; set; } = default!;
+
+        // [BindProperty(SupportsGet = true)]
+        // public bool? BeforePetBirthday { get; set; } = default!;
+
+        // [BindProperty(SupportsGet = true)]
+        // public bool DateSearchEnable { get; set; } = default!;
 
         [BindProperty(SupportsGet = true)]
-        public bool? BeforePetBirthday { get; set; } = default!;
+        public uint InputAge { get; set; } = default!;
 
         [BindProperty(SupportsGet = true)]
-        public bool DateSearchEnable { get; set; } = default!;
+        public uint Age { get; set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public bool? LessThanTheAge { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
@@ -44,22 +53,36 @@ namespace FinalProject.Pages.Pets
                 pets = _context.Pets;
             }
 
-            if (PetBirthday != null && DateSearchEnable)
-            {
+            // if (PetBirthday != null && DateSearchEnable)
+            // {
 
-                if (BeforePetBirthday != null)
+            //     if (BeforePetBirthday != null)
+            //     {
+            //         if (BeforePetBirthday.Value)
+            //         {
+            //             pets = pets.Where(g => g.Birthday <= PetBirthday);
+            //         }
+            //         else
+            //         {
+            //             pets = pets.Where(g => g.Birthday > PetBirthday);
+            //         }
+            //     }
+
+            // }
+            if (LessThanTheAge != null)
+            {
+                if (LessThanTheAge.Value)
                 {
-                    if (BeforePetBirthday.Value)
-                    {
-                        pets = pets.Where(g => g.Birthday <= PetBirthday);
-                    }
-                    else
-                    {
-                        pets = pets.Where(g => g.Birthday > PetBirthday);
-                    }
+                    pets = pets.Where(g => g.Age <= InputAge);
+                }
+                else
+                {
+                    pets = pets.Where(g => g.Age > InputAge);
                 }
 
             }
+
+
             Pet = await pets.ToListAsync();
             Page();
         }
