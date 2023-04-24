@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Final_Project.Models;
+using FinalProject.Models;
 
-namespace Final_Project.Pages_Pets
+namespace FinalProject.Pages_Pets
 {
     public class DeleteModel : PageModel
     {
-        private readonly Final_Project.Models.ProjectContext _context;
+        private readonly FinalProject.Models.ProjectContext _context;
 
-        public DeleteModel(Final_Project.Models.ProjectContext context)
+        public DeleteModel(FinalProject.Models.ProjectContext context)
         {
             _context = context;
         }

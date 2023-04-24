@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Final_Project.Models;
+using FinalProject.Models;
 
-namespace Final_Project.Pages_Pets
+namespace FinalProject.Pages_Pets
 {
     public class DetailsModel : PageModel
     {
-        private readonly Final_Project.Models.ProjectContext _context;
+        private readonly FinalProject.Models.ProjectContext _context;
 
-        public DetailsModel(Final_Project.Models.ProjectContext context)
+        public DetailsModel(FinalProject.Models.ProjectContext context)
         {
             _context = context;
         }
 
-      public Pet Pet { get; set; } = default!; 
+        public Pet Pet { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(uint? id)
         {
@@ -32,7 +32,7 @@ namespace Final_Project.Pages_Pets
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Pet = pet;
             }

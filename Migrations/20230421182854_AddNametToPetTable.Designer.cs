@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20230420211310_IndentifyAdded")]
-    partial class IndentifyAdded
+    [Migration("20230421182854_AddNametToPetTable")]
+    partial class AddNametToPetTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,6 +239,10 @@ namespace FinalProject.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 

@@ -5,6 +5,8 @@ public class Pet
 
     public uint PetId { get; set; }
 
+    public string Name { get; set; } = "";
+
     public uint Age { get; set; }
 
     public string PetType { get; set; } = "";//cat or dog

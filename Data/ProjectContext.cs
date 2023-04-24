@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-namespace Final_Project.Models;
+namespace FinalProject.Models;
 
 public class ProjectContext : IdentityDbContext
 {
