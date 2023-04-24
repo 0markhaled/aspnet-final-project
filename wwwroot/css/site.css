@@ -46,13 +46,14 @@ body {
 
 #logo-img {
   width: 75%;
+
 }
+
+/* 
+if you want to animate the nav-bar (li), do it on this object */
 
 li {
   font-size: 20pt;
-}
-
-#navbar-collapse li {
-  display: flex;
-  justify-content: space-around;
+  padding: 8px;
+  margin-bottom: -50px;
 }
