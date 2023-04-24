@@ -54,9 +54,21 @@ body {
 if you want to animate the nav-bar (li), do it on this object */
 
 li {
-  font-size: 20pt;
-  padding: 8px;
+  font-size: 14pt;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 3px;
   margin-bottom: -50px;
+}
+
+li:hover {
+  background-color: rgba(180, 51, 81, 0.578);
+  font-size: 18pt;
+  padding: 1px;
+}
+
+.nav-item>.active>a {
+  color: rgb(13, 20, 112);
+  font-style: italic;
 }
 
 .pets-index-main-container {
@@ -71,4 +83,11 @@ p {
 
 h1 {
   font-family: fantasy;
+}
+
+.pet-index-create {
+  color: blueviolet;
+  font-size: 18px;
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

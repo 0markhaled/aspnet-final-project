@@ -10,14 +10,14 @@
 <div>
     <h1>👓</h1>
     <form>
-        <p>Search Category: <input type="text" asp-for="Query" /></p>
-        <p>Search by Pet's Age:
+        <p>Search by Age:
             <input type="number" asp-for="InputAge" />
             <select asp-for="LessThanTheAge">
                 <option value="true">Less or equals</option>
                 <option value="false">Greater</option>
             </select>
         </p>
+        <p>Search by Type: <input type="text" asp-for="Query" /></p>
 
         <input type="submit" value="Search" />
     </form>
@@ -25,7 +25,7 @@
 </div>
 <div class="pets-index-main-container">
     <p>
-        <a asp-page="Create">Create New</a>
+        <a class="pet-index-create" asp-page="Create">Login to Create New Pet's Profile</a>
     </p>
     <table class="table">
         <thead>
