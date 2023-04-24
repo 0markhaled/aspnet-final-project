@@ -45,6 +45,10 @@
         background-color: rgba(0, 0, 0, 0.8);
     }
 
+    .fade:not(.show) {
+        opacity: 1;
+    }
+
     .dot {
         display: inline-block;
         width: 15px;
@@ -60,22 +64,19 @@
 
 </div>
 
-
-
-
 <div class="slideshow-container">
     <div class="mySlides fade">
-        <img src="./images/placeholderone.jpg" alt="Slide 1">
+        <img src="/images/placeholderone.jpg" alt="Slide 1">
         <div class="text">Caption Text</div>
     </div>
 
     <div class="mySlides fade">
-        <img src="slide2.jpg" alt="Slide 2">
+        <img src="/images/placeholdertwo.jpg" alt="Slide 2">
         <div class="text">Caption Text</div>
     </div>
 
     <div class="mySlides fade">
-        <img src="slide3.jpg" alt="Slide 3">
+        <img src="/images/placeholderthree.png" alt="Slide 3">
         <div class="text">Caption Text</div>
     </div>
 
@@ -91,4 +92,4 @@
     <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 
-<script src="slideshow.js"></script>
+<script src="/js/slideshow.js"></script>
