@@ -29,47 +29,50 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Pet[0].Name)
+                @Html.DisplayNameFor(model => model.Pets[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pet[0].Age)
+                @Html.DisplayNameFor(model => model.Pets[0].Age)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pet[0].PetType)
+                @Html.DisplayNameFor(model => model.Pets[0].PetType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pet[0].Gender)
+                @Html.DisplayNameFor(model => model.Pets[0].Gender)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pet[0].Description)
+                @Html.DisplayNameFor(model => model.Pets[0].Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pet[0].FileName)
+                @Html.DisplayNameFor(model => model.Pets[0].FileName)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Pet)
+        @foreach (var item in Model.Pets)
         {
             <tr>
-                <td>
+                <td class="desc">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td>
+                <td class="desc">
                     @Html.DisplayFor(modelItem => item.Age)
                 </td>
-                <td>
+                <td class="desc">
                     @Html.DisplayFor(modelItem => item.PetType)
                 </td>
-                <td>
+                <td class="desc">
                     @Html.DisplayFor(modelItem => item.Gender)
                 </td>
-                <td>
+                <td class="desc">
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FileName)
+
+                    <img class="thumb" src="/images/@item.FileName" />
+                    @* //@item/FileName is the string literal of the file name *@
+
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.PetId">Edit</a> |

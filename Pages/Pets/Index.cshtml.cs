@@ -18,7 +18,7 @@ namespace FinalProject.Pages.Pets
             _context = context;
         }
 
-        public IList<Pet> Pet { get; set; } = default!;
+        public IList<Pet> Pets { get; set; } = default!;
 
         [BindProperty(SupportsGet = true)]
         public string Query { get; set; } = default!;
@@ -83,7 +83,7 @@ namespace FinalProject.Pages.Pets
             }
 
 
-            Pet = await pets.ToListAsync();
+            Pets = await pets.ToListAsync();
             Page();
         }
     }

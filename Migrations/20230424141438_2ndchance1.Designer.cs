@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20230424132042_database")]
-    partial class database
+    [Migration("20230424141438_2ndchance1")]
+    partial class _2ndchance1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
