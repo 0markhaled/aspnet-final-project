@@ -5,8 +5,6 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Welcome to Second Chance Pet Adoption!</p>
-
 <style>
     form {
         max-width: 600px;
@@ -15,8 +13,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-decoration: underline;
-        font-style: italic;
+
     }
 
     label,
@@ -49,13 +46,18 @@
     button[type="submit"]:hover {
         background-color: #3e8e41;
     }
+
+    .label {
+        text-decoration: underline;
+        font-style: italic;
+    }
 </style>
 
 <form>
-    <label for="email">Email:</label>
+    <label for="email" class="label">Enter your email address:</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="category">Category:</label>
+    <label for="category" class="label">Select a pet:</label>
     <select id="category" name="category" required>
         <option value="">--Select category--</option>
         <option value="Category 1">Category 1</option>
@@ -63,8 +65,8 @@
         <option value="Category 3">Category 3</option>
     </select>
 
-    <label for="message">Message:</label>
+    <label for="message" class="label">Write us a message:</label>
     <textarea id="message" name="message" required></textarea>
 
-    <button type="submit">Submit</button>
+    <button type="submit" id="submit-button">Submit</button>
 </form>
