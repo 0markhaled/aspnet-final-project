@@ -52,6 +52,13 @@
 
     .text p {
         font-size: 24pt;
+        text-decoration: underline;
+        font-style: italic;
+    }
+
+    .text {
+        position: relative;
+        margin: auto;
     }
 </style>
 
@@ -68,7 +75,7 @@ Fifth step, for everything (each pet) in list, put into slideshow and display pe
             <img src="/images/@pet.FileName" alt="Slide 1" />
             <div class="text">
                 <p>
-                    Check out some of our lovely pets: @pet.Name
+                    @pet.Name
                 </p>
             </div>
         </div>

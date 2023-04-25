@@ -26,7 +26,7 @@ public class AdoptModel : PageModel
     public string Email { get; set; } = "";
 
     [BindProperty]
-    public int SelectedPetId { get; set; } = 0;
+    public uint PetId { get; set; } = default!;
 
     [BindProperty]
     [Required]
@@ -59,7 +59,7 @@ public class AdoptModel : PageModel
         adoptPets = await listContext.Pets.ToListAsync();
         _logger.LogInformation(Email);
         _logger.LogInformation(Message);
-        _logger.LogInformation(SelectedPetId.ToString());
+        _logger.LogInformation(PetId.ToString());
         //uint pId = uint.Parse(PetId);
         // if (PetId > 0)
         // {

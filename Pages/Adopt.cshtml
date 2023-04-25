@@ -13,7 +13,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
     }
 
     label,
@@ -66,16 +65,11 @@ else
         <input type="email" id="email" name="email" required asp-for="Email">
 
         <label for="category" class="label">Select a pet:</label>
-        <select id="category" name="category" required asp-for="SelectedPetId">
-            <option value="1">Select a pet</option>
-            @foreach (Pet pet in Model.adoptPets)
-            {
-                <option value="@pet.PetId">@pet.Name</option>
-            }
+        @* <select asp-for="Pet" asp-items="@(new SelectList(Model.adoptPets,"PetId","Name"))">
+    <option value="">Pick one</option>
+    </select> *@
 
-        </select>
-
-        @* <input type="number" asp-for="PetId" /> *@
+        <input type="number" asp-for="PetId" />
 
         <label for="message" class="label">Write us a message:</label>
         <textarea id="message" name="message" required asp-for="Message"></textarea>
