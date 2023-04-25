@@ -49,6 +49,10 @@
     .fade:not(.show) {
         opacity: 1;
     }
+
+    .text p {
+        font-size: 24pt;
+    }
 </style>
 
 <div class="text-center">
@@ -62,7 +66,11 @@ Fifth step, for everything (each pet) in list, put into slideshow and display pe
     {
         <div class="mySlides">
             <img src="/images/@pet.FileName" alt="Slide 1" />
-            <div class="text">@pet.Name</div>
+            <div class="text">
+                <p>
+                    Check out some of our lovely pets: @pet.Name
+                </p>
+            </div>
         </div>
     }
 
