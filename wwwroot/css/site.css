@@ -62,13 +62,8 @@ li {
 
 li:hover {
   background-color: rgba(180, 51, 81, 0.578);
-  font-size: 18pt;
+  font-size: 14pt;
   padding: 1px;
-}
-
-.nav-item>.active>a {
-  color: rgb(13, 20, 112);
-  font-style: italic;
 }
 
 .pets-index-main-container {
