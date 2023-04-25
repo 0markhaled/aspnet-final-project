@@ -25,11 +25,11 @@ a {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-top: 3px solid black;
 }
 
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 3px solid black;
 }
 
 .box-shadow {
@@ -47,7 +47,7 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
-
+  background-color: rgb(61, 48, 48);
 }
 
 footer .footer-container {
