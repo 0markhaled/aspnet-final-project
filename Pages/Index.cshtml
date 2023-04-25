@@ -21,6 +21,15 @@
         object-fit: contain;
     }
 
+    .mySlides {
+        opacity: 1;
+        animation: fadeInOut 2s linear;
+    }
+@* 
+    add key frames here 
+    
+*@
+
     .prev,
     .next {
         position: absolute;
@@ -59,6 +68,8 @@
     .text {
         position: relative;
         margin: auto;
+        display: flex;
+        justify-content: space-around;
     }
 </style>
 
@@ -80,10 +91,6 @@ Fifth step, for everything (each pet) in list, put into slideshow and display pe
             </div>
         </div>
     }
-
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
 </div>
 <div class="video">

@@ -57,6 +57,7 @@ if you want to animate the nav-bar (li), do it on this object */
   font-size: 14pt;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-bottom: -50px;
+  border-radius: 10px;
 }
 
 .nav-link:hover {
