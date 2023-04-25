@@ -15,18 +15,13 @@ public class AdoptModel : PageModel
 
     private ProjectContext listContext;
 
-    // public class AdoptPetFormModel
-    // {
-
-    // }
-
     [BindProperty]
     [Required]
     [DataType(DataType.EmailAddress)]
     public string Email { get; set; } = "";
 
     [BindProperty]
-    public uint PetId { get; set; } = default!;
+    public Pet Pet { get; set; } = default!;
 
     [BindProperty]
     [Required]
@@ -48,9 +43,11 @@ public class AdoptModel : PageModel
     {
         // part of 4th step, loading pets from petsContext, putting into list
         adoptPets = await listContext.Pets.ToListAsync();
-
+        SelectItems = new SelectList(adoptPets, nameof(Pet.PetId), nameof(Pet.Name));
         return Page();
     }
+
+    public SelectList SelectItems { get; set; }
 
 
     public async Task<IActionResult> OnPostAsync()
@@ -59,14 +56,19 @@ public class AdoptModel : PageModel
         adoptPets = await listContext.Pets.ToListAsync();
         _logger.LogInformation(Email);
         _logger.LogInformation(Message);
-        _logger.LogInformation(PetId.ToString());
-        //uint pId = uint.Parse(PetId);
-        // if (PetId > 0)
-        // {
-        //     FormSubmitted = true;
-        //     // can do something here
-        //     // can make a db context for inserting message here
-        // }
+        _logger.LogInformation(Pet.ToString());
+
+        if (Pet.PetId > 0)
+        {
+            FormSubmitted = true;
+            var pet = await listContext.Pets.FindAsync(Pet.PetId);
+            if (pet == null)
+            {
+                return BadRequest();
+
+            }
+            _logger.LogInformation(pet.ToString());
+        }
         _logger.LogInformation(FormSubmitted.ToString());
         return Page();
     }

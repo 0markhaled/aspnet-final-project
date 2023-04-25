@@ -65,11 +65,12 @@ else
         <input type="email" id="email" name="email" required asp-for="Email">
 
         <label for="category" class="label">Select a pet:</label>
-        @* <select asp-for="Pet" asp-items="@(new SelectList(Model.adoptPets,"PetId","Name"))">
-    <option value="">Pick one</option>
-    </select> *@
 
-        <input type="number" asp-for="PetId" />
+        <select asp-for="Pet.PetId" asp-items="@Model.SelectItems">
+            <option value="">Pick one</option>
+        </select>
+
+        <input type="number" asp-for="Pet.PetId">
 
         <label for="message" class="label">Write us a message:</label>
         <textarea id="message" name="message" required asp-for="Message"></textarea>
