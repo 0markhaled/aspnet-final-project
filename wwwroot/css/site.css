@@ -56,14 +56,12 @@ if you want to animate the nav-bar (li), do it on this object */
 li {
   font-size: 14pt;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding: 3px;
   margin-bottom: -50px;
 }
 
 li:hover {
   background-color: rgba(180, 51, 81, 0.578);
   font-size: 14pt;
-  padding: 1px;
 }
 
 .pets-index-main-container {
