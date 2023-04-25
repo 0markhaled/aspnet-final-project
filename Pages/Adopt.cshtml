@@ -53,20 +53,32 @@
     }
 </style>
 
-<form>
-    <label for="email" class="label">Enter your email address:</label>
-    <input type="email" id="email" name="email" required>
+@if (Model.FormSubmitted)
+{
+    <div>
+        <p>Thank you for submitting your request!</p>
+    </div>
+}
+else
+{
+    <form>
+        <label for="email" class="label">Enter your email address:</label>
+        <input type="email" id="email" name="email" required asp-for="AdoptForm.Email">
 
-    <label for="category" class="label">Select a pet:</label>
-    <select id="category" name="category" required>
-        <option value="">--Select category--</option>
-        <option value="Category 1">Category 1</option>
-        <option value="Category 2">Category 2</option>
-        <option value="Category 3">Category 3</option>
-    </select>
+        <label for="category" class="label">Select a pet:</label>
+        <select id="category" name="category" required asp-for="AdoptForm.PetId">
+            <option value="">Select a pet</option>
+            @foreach (Pet pet in Model.adoptPets)
+            {
+                <option value="@pet.PetId">@pet.Name</option>
+            }
 
-    <label for="message" class="label">Write us a message:</label>
-    <textarea id="message" name="message" required></textarea>
+        </select>
 
-    <button type="submit" id="submit-button">Submit</button>
-</form>
+        <label for="message" class="label">Write us a message:</label>
+        <textarea id="message" name="message" required asp-for="AdoptForm.Message"></textarea>
+
+        <button type="submit" id="submit-button">Submit</button>
+    </form>
+
+}
