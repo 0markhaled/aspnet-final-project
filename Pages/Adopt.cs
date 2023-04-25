@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Pages;
@@ -14,21 +15,26 @@ public class AdoptModel : PageModel
 
     private ProjectContext listContext;
 
-    public class AdoptPetFormModel
-    {
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; } = "";
+    // public class AdoptPetFormModel
+    // {
 
-        public uint PetId { get; set; } = 0;
+    // }
 
-        [Required]
-        [MinLength(10), MaxLength(1000)]
-        public string Message { get; set; } = "";
-    }
+    [BindProperty]
+    [Required]
+    [DataType(DataType.EmailAddress)]
+    public string Email { get; set; } = "";
 
-    [BindProperty(SupportsGet = true)]
-    public AdoptPetFormModel AdoptForm { get; set; } = null;
+    [BindProperty]
+    public int SelectedPetId { get; set; } = 0;
+
+    [BindProperty]
+    [Required]
+    [MinLength(10), MaxLength(1000)]
+    public string Message { get; set; } = "";
+
+    // [BindProperty]
+    // public AdoptPetFormModel AdoptForm { get; set; } = default!;
 
     public AdoptModel(ILogger<AdoptModel> logger, ProjectContext context)
     {
@@ -43,13 +49,25 @@ public class AdoptModel : PageModel
         // part of 4th step, loading pets from petsContext, putting into list
         adoptPets = await listContext.Pets.ToListAsync();
 
-        if (AdoptForm != null)
-        {
-            FormSubmitted = true;
-            // can do something here
-            // can make a db context for inserting message here
-        }
+        return Page();
+    }
 
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+        // part of 4th step, loading pets from petsContext, putting into list
+        adoptPets = await listContext.Pets.ToListAsync();
+        _logger.LogInformation(Email);
+        _logger.LogInformation(Message);
+        _logger.LogInformation(SelectedPetId.ToString());
+        //uint pId = uint.Parse(PetId);
+        // if (PetId > 0)
+        // {
+        //     FormSubmitted = true;
+        //     // can do something here
+        //     // can make a db context for inserting message here
+        // }
+        _logger.LogInformation(FormSubmitted.ToString());
         return Page();
     }
 }
