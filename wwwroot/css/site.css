@@ -53,15 +53,16 @@ body {
 /* 
 if you want to animate the nav-bar (li), do it on this object */
 
-li {
+.nav-link {
   font-size: 14pt;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-bottom: -50px;
 }
 
-li:hover {
+.nav-link:hover {
   background-color: rgba(180, 51, 81, 0.578);
   font-size: 14pt;
+  border-radius: 10px;
 }
 
 .pets-index-main-container {
