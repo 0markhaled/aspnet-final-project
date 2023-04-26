@@ -61,7 +61,7 @@ if you want to animate the nav-bar (li), do it on this object */
 }
 
 .nav-link:hover {
-  background-color: rgba(180, 51, 81, 0.578);
+  background-color: #d6208ac0;
   font-size: 14pt;
   border-radius: 10px;
 }
@@ -96,5 +96,6 @@ h1 {
 .text-center {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-style: italic;
-  color: purple;
+  color: #D6208B;
+  padding-top: 10px;
 }
