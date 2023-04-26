@@ -3,9 +3,13 @@
 @{
     ViewData["Title"] = "Submit Adoption Request";
 }
-<h1>@ViewData["Title"]</h1>
+<h1 class="h1info">@ViewData["Title"]</h1>
 
 <style>
+    .h1info {
+        color: #D6208B;
+    }
+
     form {
         max-width: 600px;
         margin: 0 auto;
@@ -13,6 +17,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        color: black;
     }
 
     label,
@@ -32,23 +37,24 @@
         box-sizing: border-box;
     }
 
-    button[type="submit"] {
-        background-color: #4CAF50;
+    .label {
+        text-decoration: underline;
+        font-style: italic;
+    }
+
+    .submitbutton {
+        background-color: #259da8;
         color: white;
+        transition: background-color 0.5s ease;
         padding: 10px 20px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
     }
 
-    button[type="submit"]:hover {
-        background-color: #3e8e41;
-    }
-
-    .label {
-        text-decoration: underline;
-        font-style: italic;
+    .submitbutton:hover {
+        background-color: #D6208B;
+        color: white;
     }
 </style>
 
@@ -78,7 +84,7 @@ instead of get (retrieving data) -loose definitions- *@
         <label for="message" class="label">Write us a message:</label>
         <textarea id="message" name="message" required asp-for="Message"></textarea>
 
-        <input type="submit" value="Save" class="btn btn-primary" />
+        <input type="submit" value="Save" class="submitbutton" />
     </form>
 
 }
