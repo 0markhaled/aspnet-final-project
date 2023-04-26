@@ -39,9 +39,9 @@ body {
 }
 
 .desc {
-  font-weight: bold;
+
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: rgb(85, 25, 85);
+  color: #d6208ac0;
   size: 20px;
 }
 
@@ -80,11 +80,16 @@ h1 {
   font-family: fantasy;
 }
 
+.pet-index-create-container {
+  margin-top: 20px;
+}
+
 .pet-index-create {
-  color: blueviolet;
-  font-size: 18px;
-  font-style: italic;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  text-decoration: none;
+  color: #259da8be;
+  font-size: 16px;
+  font-family: fantasy;
 }
 
 .video {
@@ -98,4 +103,14 @@ h1 {
   font-style: italic;
   color: #D6208B;
   padding-top: 10px;
+}
+
+.pet-index-link a {
+  text-decoration: none;
+  color: #259da8be;
+}
+
+.pet-index-link a:hover {
+
+  color: #D6208B;
 }

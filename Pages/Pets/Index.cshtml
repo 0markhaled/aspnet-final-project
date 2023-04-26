@@ -29,7 +29,7 @@
 
 </div>
 <div class="pets-index-main-container">
-    <p>
+    <p class="pet-index-create-container">
         <a class="pet-index-create" asp-page="Create">Login to Create New Pet's Profile</a>
     </p>
     <table class="table">
@@ -81,7 +81,7 @@
                         @* //@item/FileName is the string literal of the file name *@
 
                     </td>
-                    <td>
+                    <td class="pet-index-link">
                         <a asp-page="./Edit" asp-route-id="@item.PetId">Edit</a> |
                         <a asp-page="./Details" asp-route-id="@item.PetId">Details</a> |
                         <a asp-page="./Delete" asp-route-id="@item.PetId">Delete</a>
