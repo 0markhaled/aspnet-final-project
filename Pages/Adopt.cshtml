@@ -60,17 +60,20 @@
 }
 else
 {
+    @* use HTTPPost, when submitting form it does a post (submitting data to create something)
+instead of get (retrieving data) -loose definitions- *@
     <form method="post">
         <label for="email" class="label">Enter your email address:</label>
         <input type="email" id="email" name="email" required asp-for="Email">
 
         <label for="category" class="label">Select a pet:</label>
-
+        @*
+    4th step
+    Populating select with the SelectList(C# list) items
+    *@
         <select asp-for="Pet.PetId" asp-items="@Model.SelectItems">
-            <option value="">Pick one</option>
+            <option value="">Select a pet for adoption</option>
         </select>
-
-        <input type="number" asp-for="Pet.PetId">
 
         <label for="message" class="label">Write us a message:</label>
         <textarea id="message" name="message" required asp-for="Message"></textarea>
